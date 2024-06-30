@@ -1,0 +1,42 @@
+﻿@model ECommerce.Models.OrderDetail
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-9">
+        <h2 class="text-primary"><u>Order Details</u></h2>
+    </div>
+    <div class="col-3">
+        <a asp-action="Index" class="btn btn-outline-primary form-control">All Orders&nbsp;<i class="fas fa-long-arrow-alt-right"></i></a>
+    </div>
+</div>
+<br />
+<br />
+
+<div class="border shadow-lg p-3 m-3">
+    <table id="tblData" class="table table-bordered text-center table-striped table-hover">
+        <thead class="bg-primary text-light">
+            <tr>
+                <th>Order Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Count</th>
+                <th>Status</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.OrderHeaderId</td>
+                <td>@Model.OrderHeader.Name</td>
+                <td>@Model.OrderHeader.OrderDate</td>
+                <td>@Model.Product.Title</td>
+                <td>@Model.Count</td>
+                <td>@Model.OrderHeader.OrderStatus</td>
+                <td>@Model.OrderHeader.OrderTotal</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

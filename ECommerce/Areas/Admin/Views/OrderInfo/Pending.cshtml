@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="col-9">
+        <h2 class="text-primary"><u>Pending Orders</u></h2>
+    </div>
+    <div class="col-3">
+        <a asp-action="Index" class="btn btn-outline-primary form-control">All Orders&nbsp;<i class="fas fa-long-arrow-alt-right"></i></a>
+    </div>
+</div>
+<br />
+<br />
+
+<div class="border shadow-lg p-3 m-3">
+    <table id="tblData" class="table table-bordered text-center table-striped table-hover">
+        <thead class="bg-primary text-light">
+            <tr>
+                <th>Order Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+@section scripts
+{
+    <script src="~/js/pending.js"></script>
+}

@@ -1,0 +1,56 @@
+﻿@model ECommerce.Models.Category
+@{
+    ViewData["Title"] = "Upsert";
+    var title = Model.Id != 0 ? "Edit Category" : "Add Category";
+    var saveupdate = Model.Id != 0 ? "Update" : "Save";
+}
+<form method="post">
+    <div class="row">
+        <div class="col-8 border-bottom">
+            <h2 class="text-primary">@title</h2>
+        </div>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-8">
+            <div class="form-group row p-2 m-2">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" class="form-control shadow" />
+                    <span asp-validation-for="Name" class="text-danger">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row p-2 m-2">
+                <div class="col-8 offset-4">
+                    @if (Model.Id != 0)
+                    {
+                        <partial name="_EditAndBackToListButton" />
+                    }
+                    else
+                    {
+                        <partial name="_CreateAndBackToListButton" />  
+                    }
+                </div>
+
+                @*Using partial view for buttons*@
+
+                @*<div class="col-4 offset-4">
+                        <button type="submit" class="btn btn-outline-dark form-control">
+                            @saveupdate
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <a asp-action="Index" class="btn btn-outline-danger form-control">
+                            Back to list
+                        </a>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</form>
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
